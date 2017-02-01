@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 
+import 'sanitize.css/sanitize.css'
+
 import App from './App'
 
 const render = Component => {
@@ -16,7 +18,6 @@ const render = Component => {
 render(App)
 
 if (module.hot) {
-  console.log('ok')
   module.hot.accept('./App', () => {
     render(App)
   })
