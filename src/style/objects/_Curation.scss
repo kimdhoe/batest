@@ -1,0 +1,79 @@
+/**
+ * Curation
+ */
+
+.Curation {
+  position: relative;
+  animation: fade-in 700ms;
+}
+
+.Curation-spinnerWrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.Curation-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Curation-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px);
+}
+
+.Curation-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.Curation-body {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 1078px;
+  height: 655px;
+}
+
+.Curation-header, .Curation-stage, .Curation-labels {
+  position: relative;
+  float: left;
+  height: 100%;
+}
+
+.Curation-header, .Curation-labels {
+  padding-left: 1em;
+  width: 277px;
+}
+
+.Curation-labels {
+  position: relative;
+  padding-left: 3em;
+}
+
+.Curation-stage {
+  width: 524px;
+}
+
+.Curation-image {
+  position: absolute;
+  width: 524px;
+  height: 100%;
+  background-size: cover;
+}

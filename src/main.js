@@ -5,8 +5,8 @@ import { Provider } from 'react-redux'
 
 import App from './app'
 import configureStore from './store'
-import 'sanitize.css/sanitize.css'
-import './style/style.css'
+// import 'sanitize.css/sanitize.css'
+import './style/style.scss'
 
 const store = configureStore()
 

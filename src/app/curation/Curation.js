@@ -24,8 +24,10 @@ class Curation extends React.Component {
 
     if (isFetching) {
       return (
-        <div className='Curation-overlay'>
-          <Spinner />
+        <div className='Curation-spinnerWrapper'>
+          <div className="Curation-spinner">
+            <Spinner />
+          </div>
         </div>
       )
     }
@@ -51,11 +53,7 @@ class Curation extends React.Component {
 
         <div className="Curation-body">
           <div className="Curation-header">
-            <Header
-              date={pick.date}
-              feedback={pick.feedback}
-              id={pick.id}
-            />
+            <Header date={pick.date} id={pick.id} />
           </div>
 
           <div className="Curation-stage">
@@ -67,7 +65,6 @@ class Curation extends React.Component {
               <div
                 className="Curation-image"
                 key={pick.id}
-                alt={pick.title}
                 style={{ backgroundImage: `url("${pick.croppedImage}")` }}
               ></div>
             </ReactCSSTransitionGroup>

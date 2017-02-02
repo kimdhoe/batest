@@ -1,0 +1,48 @@
+/**
+ * Label
+ */
+
+.Label {
+  position: relative;
+  padding: 0.5em 0 0 0.8em;
+  cursor: pointer;
+
+  // angle decoration for a selected label
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-top: 2px solid $base-text-color;
+    border-left: 2px solid $base-text-color;
+    transform: scale(0, 0);
+    transform-origin: top left;
+    transition: transform 0.3s ease;
+  }
+
+  &.is-selected:after {
+    transform: scale(1, 1);
+    animation: scale-in 0.7s;
+  }
+}
+
+.Label-title, .Label-creator {
+  margin: 0;
+  color: $muted-text-color;
+  transition: color 0.5s ease;
+}
+
+.is-selected .Label-title, .is-selected .Label-creator {
+  color: $base-text-color;
+}
+
+.Label-title {
+  font-style: italic;
+}
+
+.Label-creator {
+  font-size: 0.85em;
+  font-weight: bold;
+}

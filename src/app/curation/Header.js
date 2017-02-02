@@ -3,26 +3,21 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import { formatDate } from '../../utils'
 
-const Header = ({ date, feedback, id }) =>
+const Header = ({ date, id }) =>
   <header className="Header">
+    <ReactCSSTransitionGroup
+      transitionName='fade'
+      transitionEnterTimeout={700}
+      transitionLeaveTimeout={700}
+    >
+      <p className="Header-date" key={id}>{formatDate(date)}</p>
+    </ReactCSSTransitionGroup>
+
     <h1 className="Header-title">Curator's Pick</h1>
-    <div className="Header-misc">
-      <ReactCSSTransitionGroup
-        transitionName='fade'
-        transitionEnterTimeout={700}
-        transitionLeaveTimeout={700}
-      >
-        <div className='Header-info' key={id}>
-          <p className="Header-date">{formatDate(date)}</p>
-          <p className="Header-feedback">{feedback}</p>
-        </div>
-      </ReactCSSTransitionGroup>
-    </div>
   </header>
 
   Header.PropTypes = {
     date: React.PropTypes.string.isRequired,
-    feedback: React.PropTypes.string.isRequired,
     id: React.PropTypes.number.isRequired
   }
 

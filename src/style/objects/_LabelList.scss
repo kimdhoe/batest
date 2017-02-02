@@ -1,0 +1,13 @@
+/**
+ * LabelList
+ */
+
+.LabelList {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.LabelList-label {
+  margin: 1.2em;
+}

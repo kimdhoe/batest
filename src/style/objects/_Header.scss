@@ -1,0 +1,42 @@
+/**
+ * Header
+ */
+
+.Header {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 261px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 30px;
+    height: 30px;
+    border-top: 2px solid $base-text-color;
+    border-left: 2px solid $base-text-color;
+    transform-origin: top left;
+    animation: scale-in 0.7s;
+  }
+}
+
+.Header-date {
+  position: absolute;
+  margin: 0;
+  font-size: 0.9em;
+  font-weight: normal;
+  color: $muted-text-color;
+}
+
+.Header-title {
+  margin: 20px 0 0 0;
+  line-height: 1;
+  font-weight: normal;
+}
+
+.Header-feedback {
+  font-style: italic;
+  color: $highlight-text-color;
+}
