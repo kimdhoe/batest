@@ -2,7 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import Curation from './Curation'
-import { fetchPicks, select } from '../actions'
+import { fetchPicks, select, selectNext } from '../actions'
+
+const makeSliderInstaller = dispatch => (interval = 5000) => {
+  return window.setInterval(
+    () => dispatch(selectNext()),
+    interval
+  )
+}
 
 const mapStateToProps = ({ picks, selected, isFetching }) => (
   {
@@ -15,7 +22,8 @@ const mapStateToProps = ({ picks, selected, isFetching }) => (
 const mapDispatchToProps = dispatch => (
   {
     fetchPicks: () => dispatch(fetchPicks()),
-    handleLabelClick: i => dispatch(select(i))
+    handleLabelClick: i => dispatch(select(i)),
+    installSlider: makeSliderInstaller(dispatch)
   }
 )
 

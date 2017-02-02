@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { RECEIVE_PICKS, DONE_FETCHING, SELECT } from './constants'
+import { RECEIVE_PICKS, DONE_FETCHING, SELECT, SELECT_NEXT } from './constants'
 import { preloadImages } from '../utils'
 import { trimData } from './model'
 
@@ -15,7 +15,7 @@ const doneFetching = () => (
   { type: DONE_FETCHING }
 )
 
-const fetchPicks = () => (dispatch, getState, api) => {
+const fetchPicks = () => (dispatch, getState, api) =>
   axios.get(api)
     .then(res => {
       const picks = res.data.data.map(trimData)
@@ -39,7 +39,6 @@ const fetchPicks = () => (dispatch, getState, api) => {
       Promise.all(promises)
         .then(() => dispatch(doneFetching()))
     )
-}
 
 const select = selected => (
   {
@@ -48,4 +47,8 @@ const select = selected => (
   }
 )
 
-export { fetchPicks, select }
+const selectNext = () => (
+  { type: SELECT_NEXT }
+)
+
+export { fetchPicks, select, selectNext }

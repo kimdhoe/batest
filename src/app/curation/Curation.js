@@ -9,6 +9,14 @@ import LabelList from './LabelList'
 const { arrayOf, bool, object, string, number, func } = React.PropTypes
 
 class Curation extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      intervalId: null
+    }
+    this.handleLabelClick = this.handleLabelClick.bind(this)
+  }
+
   static propTypes = {
     picks: arrayOf(object).isRequired, // !!!
     selected: number.isRequired,
@@ -18,6 +26,21 @@ class Curation extends React.Component {
 
   componentDidMount () {
     this.props.fetchPicks()
+      .then(() => {
+        const intervalId = this.props.installSlider()
+
+        this.setState({ intervalId })
+      })
+  }
+
+  handleLabelClick (index) {
+    this.props.handleLabelClick(index)
+
+    window.clearInterval(this.state.intervalId)
+
+    const intervalId = this.props.installSlider()
+
+    this.setState({ intervalId })
   }
 
   render () {
@@ -26,9 +49,7 @@ class Curation extends React.Component {
     if (isFetching) {
       return (
         <div className='Curation-spinnerWrapper'>
-          <div className='Curation-spinner'>
-            <Spinner />
-          </div>
+          <div className='Curation-spinner'><Spinner /></div>
         </div>
       )
     }
@@ -65,7 +86,7 @@ class Curation extends React.Component {
             <LabelList
               picks={picks}
               selected={selected}
-              handleLabelClick={handleLabelClick}
+              handleLabelClick={this.handleLabelClick}
             />
           </div>
         </div>
