@@ -1,0 +1,197 @@
+body {
+  color: #333;
+  font-family: georgia;
+}
+
+.App {
+  position: relative;
+  background-color: #efefef;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #ffcc33;
+}
+
+.Curation {
+  overflow: hidden;
+  margin: 0 auto;
+  width: 1078px;
+  height: 655px;
+}
+
+.Curation-header, .Curation-stage, .Curation-labels {
+  position: relative;
+  float: left;
+  height: 100%;
+}
+
+.Curation-header, .Curation-labels {
+  width: 277px;
+}
+
+.Curation-image {
+  width: 524px;
+  height: 100%;
+  background-size: cover;
+}
+
+.Curation-stage img {
+  max-height: 100%;
+}
+
+.Curation.is-loading {
+  opacity: 0;
+}
+
+/**
+ * Header
+ */
+
+.Header {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+}
+
+.Curation-labels {
+  background-color: #ccc;
+  padding-left: 3em;
+}
+
+/**
+ * LabelList
+ */
+
+.LabelList-label {
+  margin: 1.2em;
+  /* cursor: pointer; */
+}
+
+.Curation-labels {
+  position: relative;
+}
+
+.LabelList {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Label-title, .Label-creator {
+  margin: 0;
+  color: #888;
+  transition: color 0.5s ease;
+}
+
+.is-selected .Label-title, .is-selected .Label-creator {
+  color: #222;
+}
+
+.Label-title {
+  font-style: italic;
+}
+
+.Label-creator {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+/**
+ * Spinner
+ */
+
+.Spinner {
+  position: relative;
+  width: 70px;
+  height: 70px;
+}
+
+.Spinner-box {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+}
+
+.Spinner-box:last-child {
+  transform: rotate(180deg);
+}
+
+.Spinner-line {
+  position: absolute;
+  border-radius: 5px;
+}
+
+.Spinner-line:nth-child(1), .Spinner-line:nth-child(3)  {
+  width: 5px;
+}
+
+.Spinner-line:nth-child(2), .Spinner-line:nth-child(4)  {
+  height: 5px;
+}
+
+.Spinner-line:nth-child(1) {
+  left: 0;
+  background-color: rgb(253,158,184);
+  animation: spin-a 2s infinite linear;
+}
+
+.Spinner-line:nth-child(2) {
+  bottom: 0;
+  background-color: rgb(203,179,255);
+  animation: spin-b 2s 0.5s infinite linear;
+}
+
+.Spinner-line:nth-child(3) {
+  right: 0;
+  background-color: rgb(151,200,255);
+  animation: spin-c 2s 1s infinite linear;
+}
+
+.Spinner-line:nth-child(4) {
+  top: 0;
+  background-color: rgb(157,234,218);
+  animation: spin-d 2s 1.5s infinite linear;
+}
+
+/**
+ * animations
+ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spin-a {
+  0% { top: 0; bottom: 100%; }
+  25% { top: 0; bottom: 0; }
+  50% { top: 100%; bottom: 0; }
+  100% { top: 100%; bottom: 0; }
+}
+
+@keyframes spin-b {
+  0% { left: 0; right: 100%; }
+  25% { left: 0; right: 0; }
+  50% { left: 100%; right: 0; }
+  100% { left: 100%; right: 0; }
+}
+
+@keyframes spin-c {
+  0% { top: 100%; bottom: 0; }
+  25% { top: 0; bottom: 0; }
+  50% { top: 0; bottom: 100%; }
+  100% { top: 0; bottom: 100%; }
+}
+
+@keyframes spin-d {
+  0% { left: 100%; right: 0; }
+  25% { left: 0; right: 0; }
+  50% { left: 0; right: 100%; }
+  100% { left: 0; right: 100%; }
+}

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 
 import 'sanitize.css/sanitize.css'
+import './style/style.css'
 
 import App from './App'
 
