@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-import {formatDate} from '../../utils/date'
+import { formatDate } from '../../utils'
 
 const Header = ({ date, feedback, id }) =>
   <header className="Header">

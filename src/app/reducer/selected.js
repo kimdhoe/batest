@@ -1,6 +1,6 @@
 import { SELECT } from '../constants'
 
-const selected = (state = 1, action) => {
+const selected = (state = 0, action) => {
   switch (action.type) {
     case SELECT:
       return action.selected

@@ -13,4 +13,19 @@ const formatDate = date => {
   return `${MONTH_NAMES[m]}. ${d}`
 }
 
-export { formatDate }
+// preloadImages :: string -> Promise<string>
+// Preloads an image from a given URL.
+const preloadImages = url =>
+  new Promise((resolve, reject) => {
+    const img = new Image()
+
+    img.onload = () => resolve(url)
+    img.onerror = () => reject(new Error('Filed to load an image'))
+
+    img.src = url
+  })
+
+export {
+  formatDate,
+  preloadImages
+}
