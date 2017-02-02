@@ -15,9 +15,9 @@ class LabelList extends React.Component {
     const { picks, selected, handleLabelClick } = this.props
 
     return (
-      <div className="LabelList">
+      <div className='LabelList'>
         {picks.map((pick, i) =>
-          <div className="LabelList-label" key={pick.id}>
+          <div className='LabelList-label' key={pick.id}>
             <Label
               pick={pick}
               isSelected={i === selected}

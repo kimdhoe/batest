@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-import Header from './Header'
-import LabelList from './LabelList'
 import Spinner from '../shared/Spinner'
+import Header from './Header'
+import Stage from './Stage'
+import LabelList from './LabelList'
 
 const { arrayOf, bool, object, string, number, func } = React.PropTypes
 
@@ -25,7 +26,7 @@ class Curation extends React.Component {
     if (isFetching) {
       return (
         <div className='Curation-spinnerWrapper'>
-          <div className="Curation-spinner">
+          <div className='Curation-spinner'>
             <Spinner />
           </div>
         </div>
@@ -33,44 +34,34 @@ class Curation extends React.Component {
     }
 
     const { picks, selected, handleLabelClick } = this.props
-    const pick = picks[selected]
+    const { id, date, thumbnail, croppedImage } = picks[selected]
 
     return (
-      <div className="Curation">
+      <div className='Curation'>
         <ReactCSSTransitionGroup
           transitionName='fade'
           transitionEnterTimeout={700}
           transitionLeaveTimeout={700}
         >
           <div
-            className="Curation-bg"
-            key={pick.id}
-            style={{ backgroundImage: `url('${pick.thumbnail}')` }}
+            className='Curation-bg'
+            key={id}
+            style={{ backgroundImage: `url('${thumbnail}')` }}
           ></div>
         </ReactCSSTransitionGroup>
 
-        <div className="Curation-overlay"></div>
+        <div className='Curation-overlay'></div>
 
-        <div className="Curation-body">
-          <div className="Curation-header">
-            <Header date={pick.date} id={pick.id} />
+        <div className='Curation-body'>
+          <div className='Curation-header'>
+            <Header date={date} id={id} />
           </div>
 
-          <div className="Curation-stage">
-            <ReactCSSTransitionGroup
-              transitionName='fade'
-              transitionEnterTimeout={700}
-              transitionLeaveTimeout={700}
-            >
-              <div
-                className="Curation-image"
-                key={pick.id}
-                style={{ backgroundImage: `url("${pick.croppedImage}")` }}
-              ></div>
-            </ReactCSSTransitionGroup>
+          <div className='Curation-stage'>
+            <Stage id={id} imageUrl={croppedImage} />
           </div>
 
-          <div className="Curation-labels">
+          <div className='Curation-labels'>
             <LabelList
               picks={picks}
               selected={selected}

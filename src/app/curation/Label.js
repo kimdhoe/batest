@@ -5,8 +5,8 @@ const Label = ({ isSelected, pick, onClick }) =>
     className={`Label ${isSelected ? 'is-selected': ''}` }
     onClick={onClick}
   >
-    <p className="Label-title">{pick.title}</p>
-    <p className="Label-creator">{pick.creator}</p>
+    <p className='Label-title'>{pick.title}</p>
+    <p className='Label-creator'>{pick.creator}</p>
   </div>
 
 Label.propTypes = {
