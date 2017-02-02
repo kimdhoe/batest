@@ -15,31 +15,6 @@ const doneFetching = () => (
   { type: DONE_FETCHING }
 )
 
-const fetchPicks = () => (dispatch, getState, api) =>
-  axios.get(api)
-    .then(res => {
-      const picks = res.data.data.map(trimData)
-
-      dispatch(receivePicks(picks))
-
-      return picks
-    })
-    .then(picks => {
-      const imageUrls = picks.reduce((acc, pick) =>
-        [ ...acc, pick.thumbnail, pick.croppedImage ],
-        []
-      )
-      const promises = imageUrls
-        .map(preloadImages)
-        .map(p => p.catch(err => console.error(err)))
-
-      return promises
-    })
-    .then(promises =>
-      Promise.all(promises)
-        .then(() => dispatch(doneFetching()))
-    )
-
 const select = selected => (
   {
     type: SELECT,
@@ -50,5 +25,25 @@ const select = selected => (
 const selectNext = () => (
   { type: SELECT_NEXT }
 )
+
+const fetchPicks = () => (dispatch, getState, api) =>
+  axios.get(api)
+    .then(res => {
+      const picks = res.data.data.map(trimData)
+
+      dispatch(receivePicks(picks))
+
+      const imageUrls = picks.reduce((acc, pick) =>
+        [ ...acc, pick.thumbnail, pick.croppedImage ],
+        []
+      )
+      const promises = imageUrls
+        .map(preloadImages)
+        .map(p => p.catch(err => console.error(err)))
+
+      return promises
+    })
+    .then(promises => Promise.all(promises))
+    .then(() => dispatch(doneFetching()))
 
 export { fetchPicks, select, selectNext }
