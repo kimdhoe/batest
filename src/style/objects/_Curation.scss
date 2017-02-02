@@ -49,6 +49,14 @@
   margin: 0 auto;
   width: 1078px;
   height: 655px;
+
+  @media (max-width: 1077px) {
+    width: 801px;
+  }
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 }
 
 .Curation-header, .Curation-stage, .Curation-labels {
@@ -62,12 +70,26 @@
   width: 277px;
 }
 
+.Curation-header {
+  @media (max-width: 1077px) {
+    display: none;
+  }
+}
+
 .Curation-labels {
   position: relative;
   padding-left: 3em;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 }
 
 .Curation-stage {
   width: 524px;
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 }
 
