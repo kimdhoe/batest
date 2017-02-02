@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Loading = () =>
+const Spinner = () =>
   <div className="Spinner">
     <div className="Spinner-box">
       <div className="Spinner-line"></div>
@@ -16,4 +16,4 @@ const Loading = () =>
     </div>
   </div>
 
-export default Loading
+export default Spinner

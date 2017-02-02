@@ -1,6 +1,11 @@
 body {
-  color: #333;
+  color: #444;
+  font-size: 16px;
   font-family: georgia;
+}
+
+.container {
+  padding-top: 3em;
 }
 
 .App {
@@ -11,6 +16,7 @@ body {
 .Curation {
   position: relative;
   background-color: rgba(255, 255, 255, 0.5);
+  animation: fadeIn 700ms;
 }
 
 .Curation-bg {
@@ -20,6 +26,7 @@ body {
   bottom: 0;
   left: 0;
   background-size: cover;
+  background-position: center;
   filter: blur(5px);
 }
 
@@ -50,18 +57,15 @@ body {
   width: 277px;
 }
 
+.Curation-stage {
+  width: 524px;
+}
+
 .Curation-image {
+  position: absolute;
   width: 524px;
   height: 100%;
   background-size: cover;
-}
-
-.Curation-stage img {
-  max-height: 100%;
-}
-
-.Curation.is-loading {
-  opacity: 0;
 }
 
 /**
@@ -72,8 +76,39 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  margin: 0;
+  margin: 0 3em 0 0;
 }
+
+.Header-title {
+  margin: 0;
+  line-height: 1;
+  font-weight: normal;
+}
+
+.Header-misc {
+  position: relative;
+  min-height: 175px;
+}
+
+.Header-info {
+  position: absolute;
+}
+
+.Header-date {
+  margin: 0;
+  font-size: 0.9em;
+  font-weight: normal;
+  color: #999;
+}
+
+.Header-feedback {
+  padding-left: 0.75em;
+  border-left: 3px solid #dadada;
+  font-style: italic;
+  color: #666;
+}
+
+
 
 .Curation-labels {
   padding-left: 3em;
@@ -97,9 +132,36 @@ body {
   transform: translateY(-50%);
 }
 
+/**
+ * Label
+ */
+
+.Label {
+  position: relative;
+  padding: 0.5em 0 0 0.8em;
+}
+
+.Label:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-top: 2px solid #444;
+  border-left: 2px solid #444;
+  transform: scale(0, 0);
+  transform-origin: top left;
+  transition: transform 0.3s ease;
+}
+
+.Label.is-selected:after {
+  transform: scale(1, 1);
+}
+
 .Label-title, .Label-creator {
   margin: 0;
-  color: #888;
+  color: #adadad;
   transition: color 0.5s ease;
 }
 
@@ -112,7 +174,7 @@ body {
 }
 
 .Label-creator {
-  font-size: 0.9em;
+  font-size: 0.85em;
   font-weight: bold;
 }
 
@@ -189,6 +251,33 @@ body {
 /**
  * animations
  */
+
+.fade-appear {
+  opacity: 0;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 700ms ease;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 700ms ease;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0;
+  transition: opacity 700ms ease;
+}
 
 @keyframes fadeIn {
   from { opacity: 0; }

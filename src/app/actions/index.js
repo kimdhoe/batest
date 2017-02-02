@@ -31,7 +31,8 @@ const trimData = data => {
     thumbnail: work.attachments[0].thumbnail.medium,
     croppedImage: data.croppedImage,
     curator: data.curator.username,
-    date: data.createdDate
+    date: data.createdDate,
+    feedback: data.feedback
   }
 }
 
