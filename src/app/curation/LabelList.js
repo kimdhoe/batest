@@ -2,23 +2,26 @@ import React from 'react'
 
 import Label from './Label'
 
-const { arrayOf, object, number } = React.PropTypes
+const { arrayOf, object, number, func } = React.PropTypes
 
 class LabelList extends React.Component {
   static propTypes = {
-    picks: arrayOf(object),
-    selected: number
+    picks: arrayOf(object).isRequired,
+    selected: number.isRequired,
+    handleLabelClick: func.isRequired
   }
 
   render () {
+    const { picks, selected, handleLabelClick } = this.props
+
     return (
       <div className="LabelList">
-        {this.props.picks.map((pick, i) =>
+        {picks.map((pick, i) =>
           <div className="LabelList-label" key={pick.id}>
             <Label
-              isSelected={i === this.props.selected}
               pick={pick}
-              handleLabelClick={() => { this.props.handleLabelClick(i) }}
+              isSelected={i === selected}
+              onClick={() => handleLabelClick(i)}
             />
           </div>
         )}
