@@ -13,12 +13,12 @@ class LabelList extends React.Component {
   render () {
     return (
       <div className="LabelList">
-        {this.props.picks.map(pick =>
+        {this.props.picks.map((pick, i) =>
           <div className="LabelList-label" key={pick.id}>
             <Label
-              isSelected={pick.id === this.props.selected}
+              isSelected={i === this.props.selected}
               pick={pick}
-              handleLabelClick={() => { this.props.handleLabelClick(pick.id) }}
+              handleLabelClick={() => { this.props.handleLabelClick(i) }}
             />
           </div>
         )}

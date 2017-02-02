@@ -43,9 +43,9 @@ class App extends React.Component {
   constructor () {
     super()
     this.state = {
-      isFetching: true,  // Is still fetching data and images?
-      picks: [],         // Fetched data.
-      selected: 0        // The ID of currently selected pick.
+      isFetching: true,  // Are data and images still being fetched?
+      picks: [],         // Five picks.
+      selected: 0        // The index of currently selected pick.
     }
     this.handleLabelClick = this.handleLabelClick.bind(this)
   }
@@ -54,12 +54,8 @@ class App extends React.Component {
     axios.get(API)
       .then(res => {
         const picks = res.data.data.map(trimData)
-        console.log(picks)
 
-        this.setState({
-          picks,
-          selected: picks[0].id
-        })
+        this.setState({ picks })
 
         // images :: Array<string>
         // The URLs of images that should be preloaded.

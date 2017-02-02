@@ -22,7 +22,7 @@ class Curation extends React.Component {
 
         <div className="Curation-stage">
           {picks
-            .filter(pick => pick.id === selected)
+            .filter((pick, i) => i === selected)
             .map(pick =>
               <div
                 className="Curation-image"
