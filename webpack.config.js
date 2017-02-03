@@ -18,12 +18,12 @@ const config = env => {
     output: {
       filename: ifProd('bundle.[chunkhash].js', 'bundle.js'),
       path: resolve(__dirname, 'dist'),
-      publicPath: '/'
+      publicPath: './'
     },
     devServer: {
       hot: true,
       contentBase: resolve(__dirname, 'dist'),
-      publicPath: '/'
+      publicPath: './'
     },
     devtool: ifProd('cheap-module-source-map', 'cheap-eval-source-map'),
     module: {

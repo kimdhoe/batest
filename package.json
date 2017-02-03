@@ -9,6 +9,7 @@
     "start": "webpack-dev-server --env=dev",
     "prebuild": "rimraf dist/",
     "build": "webpack --env=prod -p",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
