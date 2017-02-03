@@ -5,20 +5,19 @@ import Spinner from '../shared/Spinner'
 import Header from './Header'
 import Stage from './Stage'
 import LabelList from './LabelList'
+import { pickType } from '../model'
 
 const { arrayOf, bool, object, string, number, func } = React.PropTypes
 
 class Curation extends React.Component {
   constructor () {
     super()
-    this.state = {
-      intervalId: null
-    }
+    this.state = { intervalId: null }
     this.handleLabelClick = this.handleLabelClick.bind(this)
   }
 
   static propTypes = {
-    picks: arrayOf(object).isRequired, // !!!
+    picks: arrayOf(pickType).isRequired,
     selected: number.isRequired,
     isFetching: bool.isRequired,
     handleLabelClick: func.isRequired
@@ -37,10 +36,7 @@ class Curation extends React.Component {
     this.props.handleLabelClick(index)
 
     window.clearInterval(this.state.intervalId)
-
-    const intervalId = this.props.installSlider()
-
-    this.setState({ intervalId })
+    this.setState({ intervalId: this.props.installSlider() })
   }
 
   render () {
@@ -50,6 +46,8 @@ class Curation extends React.Component {
       return (
         <ReactCSSTransitionGroup
           transitionName='fade'
+          transitionAppear={true}
+          transitionAppearTimeout={700}
           transitionEnterTimeout={700}
           transitionLeaveTimeout={700}
         >

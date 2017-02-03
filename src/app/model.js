@@ -1,14 +1,18 @@
+import React from 'react'
+
+const { shape, number, string } = React.PropTypes
+
 // A Pick is an object:
-//   {
-//     id:           number,
-//     title:        string,
-//     creator:      string,
-//     thumbnail:    string,
-//     croppedImage: string,
-//     curator:      string,
-//     date:         string,
-//     feedback:     string
-//   }
+const pickType = React.PropTypes.shape({
+  id: number,
+  title: string,
+  creator: string,
+  thumbnail: string,
+  croppedImage: string,
+  curator: string,
+  date: string,
+  feedback: string
+})
 
 // trimData :: object -> Pick
 // Given whole data of a picked piece, extracts required information.
@@ -27,4 +31,4 @@ const trimData = data => {
   }
 }
 
-export { trimData }
+export { trimData, pickType }
