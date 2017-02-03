@@ -19,12 +19,12 @@
     border-left: 2px solid $base-text-color;
     transform: scale(0, 0);
     transform-origin: top left;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
   }
 
   &.is-selected:after {
     transform: scale(1, 1);
-    animation: scale-in 0.7s;
+    animation: scale-in 0.5s;
   }
 }
 

@@ -33,22 +33,22 @@
 
   &:nth-child(1) {
     left: 0;
-    animation: spin-a 1.6s infinite linear;
+    animation: spin-a 1.2s infinite linear;
   }
 
   &:nth-child(2) {
     bottom: 0;
-    animation: spin-b 1.6s 0.4s infinite linear;
+    animation: spin-b 1.2s 0.3s infinite linear;
   }
 
   &:nth-child(3) {
     right: 0;
-    animation: spin-c 1.6s 0.8s infinite linear;
+    animation: spin-c 1.2s 0.6s infinite linear;
   }
 
   &:nth-child(4) {
     top: 0;
-    animation: spin-d 1.6s 1.2s infinite linear;
+    animation: spin-d 1.2s 0.9s infinite linear;
   }
 }
 

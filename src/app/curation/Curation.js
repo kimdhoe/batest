@@ -48,9 +48,15 @@ class Curation extends React.Component {
 
     if (isFetching) {
       return (
-        <div className='Curation-spinnerWrapper'>
-          <div className='Curation-spinner'><Spinner /></div>
-        </div>
+        <ReactCSSTransitionGroup
+          transitionName='fade'
+          transitionEnterTimeout={700}
+          transitionLeaveTimeout={700}
+        >
+          <div className='Curation-spinnerWrapper'>
+            <div className='Curation-spinner'><Spinner /></div>
+          </div>
+        </ReactCSSTransitionGroup>
       )
     }
 
