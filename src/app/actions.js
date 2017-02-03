@@ -4,6 +4,7 @@ import { RECEIVE_PICKS, DONE_FETCHING, SELECT, SELECT_NEXT } from './constants'
 import { preloadImages } from '../utils'
 import { trimData } from './model'
 
+// Cache retrieved data from the API in Redux store.
 const receivePicks = picks => (
   {
     type: RECEIVE_PICKS,
@@ -11,10 +12,12 @@ const receivePicks = picks => (
   }
 )
 
+// All data (including images)  has been fetched.
 const doneFetching = () => (
   { type: DONE_FETCHING }
 )
 
+// Select a piece to show.
 const select = selected => (
   {
     type: SELECT,
@@ -22,10 +25,12 @@ const select = selected => (
   }
 )
 
+// Select next piece.
 const selectNext = () => (
   { type: SELECT_NEXT }
 )
 
+// (thunk) Fetch curator's pick data and then fetch images.
 const fetchPicks = () => (dispatch, getState, api) =>
   axios.get(api)
     .then(res => {
