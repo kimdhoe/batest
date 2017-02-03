@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { pickType } from '../model'
+
 const Label = ({ isSelected, pick, onClick }) =>
   <div
     className={`Label ${isSelected ? 'is-selected': ''}` }
@@ -11,7 +13,7 @@ const Label = ({ isSelected, pick, onClick }) =>
 
 Label.propTypes = {
   isSelected: React.PropTypes.bool.isRequired,
-  pick: React.PropTypes.object.isRequired,
+  pick: pickType.isRequired,
   onClick: React.PropTypes.func.isRequired
 }
 

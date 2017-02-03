@@ -1,12 +1,13 @@
 import React from 'react'
 
 import Label from './Label'
+import { pickType } from '../model'
 
 const { arrayOf, object, number, func } = React.PropTypes
 
 class LabelList extends React.Component {
   static propTypes = {
-    picks: arrayOf(object).isRequired,
+    picks: arrayOf(pickType).isRequired,
     selected: number.isRequired,
     handleLabelClick: func.isRequired
   }

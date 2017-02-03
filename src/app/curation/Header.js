@@ -16,9 +16,9 @@ const Header = ({ date, id }) =>
     <h1 className='Header-title'>Curator's Pick</h1>
   </header>
 
-  Header.PropTypes = {
-    date: React.PropTypes.string.isRequired,
-    id: React.PropTypes.number.isRequired
-  }
+Header.PropTypes = {
+  date: React.PropTypes.string.isRequired,
+  id: React.PropTypes.number.isRequired
+}
 
 export default Header
