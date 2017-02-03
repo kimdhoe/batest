@@ -38,8 +38,8 @@ const fetchPicks = () => (dispatch, getState, api) =>
 
       dispatch(receivePicks(picks))
 
-      const imageUrls = picks.reduce((acc, pick) =>
-        [ ...acc, pick.thumbnail, pick.croppedImage ],
+      const imageUrls = picks.reduce(
+        (acc, pick) => [ ...acc, pick.thumbnail, pick.croppedImage ],
         []
       )
       const promises = imageUrls

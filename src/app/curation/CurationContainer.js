@@ -4,12 +4,13 @@ import { connect } from 'react-redux'
 import Curation from './Curation'
 import { fetchPicks, select, selectNext } from '../actions'
 
-const makeSliderInstaller = dispatch => (interval = 5000) => {
-  return window.setInterval(
+// Given the `store.dispatch` function, produces a function that
+// dispatches SELECT_NEXT actions at given intervals.
+const makeSliderInstaller = dispatch => (interval = 5000) =>
+  window.setInterval(
     () => dispatch(selectNext()),
     interval
   )
-}
 
 const mapStateToProps = ({ picks, selected, isFetching }) => (
   {
