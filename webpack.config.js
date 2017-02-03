@@ -37,7 +37,14 @@ const config = env => {
           test: /\.s?css$/,
           use: ExtractTextPlugin.extract({
             fallbackLoader: 'style-loader',
-            loader: [ 'css-loader', 'sass-loader' ]
+            loader: [
+              'css-loader',
+              'sass-loader',
+              {
+                loader: 'postcss-loader',
+                options: { plugins: () => [ require('autoprefixer') ] }
+              }
+            ]
           })
         }
       ]
